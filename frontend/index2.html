@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chai Verdict ☕</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="hero">
+            <div class="chai-icon">☕</div>
+
+            <h1>CHAI VERDICT</h1>
+
+            <p>
+                Because every cup of chai deserves a fair trial.
+            </p>
+
+            <span class="badge">⚖️ THE SUPREME COURT OF CHAI</span>
+        </header>
+
+
+        <!-- PHOTO SECTION -->
+        <section class="card">
+
+            <h2>📸 Show Us The Evidence</h2>
+
+            <p class="subtitle">
+                Upload a photo of the chai you're putting on trial.
+            </p>
+
+            <div class="upload-box" id="uploadBox">
+
+                <div id="uploadControls">
+
+                    <div class="upload-buttons">
+
+                        <!-- CAMERA -->
+                        <button
+                            type="button"
+                            class="upload-btn"
+                            id="cameraButton">
+                            📷 Take Photo
+                        </button>
+
+                        <!-- GALLERY -->
+                        <button
+                            type="button"
+                            class="upload-btn"
+                            id="galleryButton">
+                            🖼️ Choose from Gallery
+                        </button>
+
+                    </div>
+
+                    <p class="upload-hint">
+                        JPG, PNG or WEBP
+                    </p>
+
+                </div>
+
+
+                <!-- CAMERA INPUT -->
+                <input
+                    type="file"
+                    id="cameraInput"
+                    accept="image/*"
+                    capture="environment"
+                    hidden>
+
+
+                <!-- GALLERY INPUT -->
+                <input
+                    type="file"
+                    id="galleryInput"
+                    accept="image/*"
+                    hidden>
+
+
+                <!-- PREVIEW -->
+                <div
+                    id="previewContainer"
+                    class="preview-container"
+                    hidden>
+
+                    <img
+                        id="previewImage"
+                        alt="Selected chai">
+
+                    <button
+                        type="button"
+                        id="changePhoto"
+                        class="change-photo">
+                        ↻ Change Photo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUESTIONS -->
+        <section class="card">
+
+            <h2>👅 The Chai Interrogation</h2>
+
+            <p class="subtitle">
+                You only need to taste the chai. No recipe knowledge required.
+            </p>
+
+
+            <!-- QUESTION 1 -->
+            <div class="question">
+
+                <h3>
+                    1. How was the sweetness?
+                </h3>
+
+                <p>
+                    Too sweet, too little, or just right?
+                </p>
+
+                <div class="choices">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="sweetness"
+                            value="too_little">
+                        <span>😐 Too little</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="sweetness"
+                            value="just_right">
+                        <span>👌 Just right</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="sweetness"
+                            value="too_sweet">
+                        <span>🍬 Too sweet</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+            <div class="question">
+
+                <h3>
+                    2. How was the milk balance?
+                </h3>
+
+                <p>
+                    Too milky, too little milk, or perfectly balanced?
+                </p>
+
+                <div class="choices">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="milk"
+                            value="tea_forward">
+                        <span>🍵 Tea-forward</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="milk"
+                            value="balanced">
+                        <span>⚖️ Balanced</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="milk"
+                            value="very_milky">
+                        <span>🥛 Very milky</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+            <div class="question">
+
+                <h3>
+                    3. How strong was the tea?
+                </h3>
+
+                <p>
+                    Weak, medium, strong, or full-on kadak?
+                </p>
+
+                <div class="choices">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="strength"
+                            value="weak">
+                        <span>💧 Weak</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="strength"
+                            value="medium">
+                        <span>☕ Medium</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="strength"
+                            value="strong">
+                        <span>🔥 Strong</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="strength"
+                            value="full_kadak">
+                        <span>💀 Full Kadak</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+            <div class="question">
+
+                <h3>
+                    4. What did the flavour taste like?
+                </h3>
+
+                <p>
+                    Plain, nicely spiced, or overloaded with spices?
+                </p>
+
+                <div class="choices">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="flavour"
+                            value="plain">
+                        <span>😶 Mostly plain</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="flavour"
+                            value="nicely_spiced">
+                        <span>🌿 Nicely spiced</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="flavour"
+                            value="spice_attack">
+                        <span>🌶️ Spice attack</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+            <div class="question">
+
+                <h3>
+                    5. One final question...
+                </h3>
+
+                <p>
+                    How good was that sip? Would you happily drink another cup?
+                </p>
+
+                <div class="choices">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="enjoyment"
+                            value="never_again">
+                        <span>🚫 Never again</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="enjoyment"
+                            value="okay">
+                        <span>😐 It was okay</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="enjoyment"
+                            value="pretty_good">
+                        <span>🙂 Pretty good</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="enjoyment"
+                            value="really_good">
+                        <span>🔥 Really good</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="enjoyment"
+                            value="another_cup">
+                        <span>👑 Give me another cup</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+            <div class="action-buttons">
+
+                <button
+                    type="button"
+                    id="judgeButton"
+                    class="judge-button">
+                    ⚖️ JUDGE MY CHAI
+                </button>
+
+                <button
+                    type="button"
+                    id="resetButton"
+                    class="secondary-button">
+                    🔄 Start Over
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <section
+            id="resultSection"
+            class="card result-section"
+            hidden>
+
+            <div class="verdict-header">
+
+                <span class="court-stamp">
+                    VERDICT
+                </span>
+
+                <h2 id="verdictTitle">
+                    ☕ CHAI VERDICT
+                </h2>
+
+                <div
+                    id="score"
+                    class="score">
+                    0/100
+                </div>
+
+            </div>
+
+
+            <!-- SCORE BREAKDOWN -->
+            <div class="score-grid">
+
+                <div class="score-card">
+
+                    <span>👁️</span>
+
+                    <h3>Visual Score</h3>
+
+                    <strong id="visualScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="score-card">
+
+                    <span>👅</span>
+
+                    <h3>Taste Score</h3>
+
+                    <strong id="tasteScore">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="score-card">
+
+                    <span>⚖️</span>
+
+                    <h3>Overall</h3>
+
+                    <strong id="overallScore">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYSIS -->
+            <div class="analysis-box">
+
+                <h3>🔍 Court's Analysis</h3>
+
+                <p id="explanation">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- MALAYALAM CAPTION -->
+            <div class="caption-box">
+
+                <h3>🇮🇳 Malayalam Caption</h3>
+
+                <p id="malayalamCaption">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- ENGLISH ROAST -->
+            <div class="roast-box">
+
+                <h3>🔥 English Roast</h3>
+
+                <p id="englishRoast">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- MALAYALAM ROAST -->
+            <div class="roast-box malayalam-roast">
+
+                <h3>🔥 മലയാളം Roast</h3>
+
+                <p id="malayalamRoast">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAI BATTLE -->
+        <section class="card battle-section">
+
+            <div class="battle-heading">
+
+                <span>⚔️</span>
+
+                <div>
+
+                    <h2>CHAI BATTLE</h2>
+
+                    <p class="subtitle">
+                        Two chais enter. Only one survives the court.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="battle-grid">
+
+
+                <!-- CHAI A -->
+                <div class="battle-card">
+
+                    <h3>☕ CHAI A</h3>
+
+                    <div
+                        class="battle-upload"
+                        id="battleUploadA">
+
+                        <button
+                            type="button"
+                            id="battleButtonA"
+                            class="upload-btn">
+                            🖼️ Choose Chai A
+                        </button>
+
+                        <input
+                            type="file"
+                            id="battleInputA"
+                            accept="image/*"
+                            hidden>
+
+                        <img
+                            id="battlePreviewA"
+                            class="battle-preview"
+                            alt="Chai A"
+                            hidden>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VS -->
+                <div class="versus">
+                    VS
+                </div>
+
+
+                <!-- CHAI B -->
+                <div class="battle-card">
+
+                    <h3>☕ CHAI B</h3>
+
+                    <div
+                        class="battle-upload"
+                        id="battleUploadB">
+
+                        <button
+                            type="button"
+                            id="battleButtonB"
+                            class="upload-btn">
+                            🖼️ Choose Chai B
+                        </button>
+
+                        <input
+                            type="file"
+                            id="battleInputB"
+                            accept="image/*"
+                            hidden>
+
+                        <img
+                            id="battlePreviewB"
+                            class="battle-preview"
+                            alt="Chai B"
+                            hidden>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="battleButton"
+                class="battle-main-button">
+                ⚔️ LET THEM FIGHT
+            </button>
+
+
+            <!-- BATTLE RESULT -->
+            <div
+                id="battleResult"
+                class="battle-result"
+                hidden>
+
+                <h2 id="battleWinner">
+                    🏆
+                </h2>
+
+                <p id="battleExplanation">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                ☕ Chai Verdict — No chai was harmed during this trial.
+            </p>
+
+            <p>
+                Built for the Useless Project Hackathon.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

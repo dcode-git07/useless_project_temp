@@ -1,0 +1,428 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5ead8;
+    color: #3b2415;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(950px, 94%);
+    margin: auto;
+    padding: 30px 0 50px;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.chai-icon {
+    font-size: 55px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 8vw, 70px);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 8px 0 15px;
+}
+
+.badge {
+    display: inline-block;
+    background: #3b2415;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* CARDS */
+
+.card {
+    background: #fffaf2;
+    border-radius: 22px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 25px rgba(60, 35, 15, 0.12);
+}
+
+.card h2 {
+    font-size: 25px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #765b47;
+    margin-bottom: 20px;
+}
+
+/* UPLOAD */
+
+.upload-box {
+    border: 3px dashed #c69c6d;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.upload-btn {
+    border: none;
+    background: #6f4325;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.upload-hint {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8b7563;
+}
+
+.preview-container {
+    width: 100%;
+}
+
+.preview-container img {
+    max-width: 100%;
+    max-height: 330px;
+    border-radius: 15px;
+    object-fit: contain;
+}
+
+.change-photo {
+    display: block;
+    margin: 12px auto 0;
+    border: none;
+    background: transparent;
+    color: #6f4325;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* QUESTIONS */
+
+.question {
+    padding: 20px 0;
+    border-bottom: 1px solid #eadbc9;
+}
+
+.question:last-of-type {
+    border-bottom: none;
+}
+
+.question h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.question p {
+    color: #765b47;
+    margin-bottom: 13px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.choices label {
+    cursor: pointer;
+}
+
+.choices input {
+    display: none;
+}
+
+.choices span {
+    display: inline-block;
+    padding: 10px 14px;
+    border: 2px solid #dfcbb5;
+    border-radius: 12px;
+    background: white;
+    transition: 0.2s;
+}
+
+.choices span:hover {
+    border-color: #a87545;
+}
+
+.choices input:checked + span {
+    background: #6f4325;
+    color: white;
+    border-color: #6f4325;
+    transform: translateY(-1px);
+}
+
+/* BUTTONS */
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.judge-button,
+.battle-main-button {
+    border: none;
+    background: #b55228;
+    color: white;
+    padding: 16px 25px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #7d351b;
+}
+
+.judge-button:hover,
+.battle-main-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #7d351b;
+}
+
+.secondary-button {
+    border: 2px solid #6f4325;
+    background: transparent;
+    color: #6f4325;
+    padding: 14px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* RESULTS */
+
+.result-section {
+    text-align: center;
+}
+
+.verdict-header {
+    padding: 10px 0 25px;
+}
+
+.court-stamp {
+    display: inline-block;
+    border: 2px solid #b55228;
+    color: #b55228;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    transform: rotate(-3deg);
+}
+
+.verdict-header h2 {
+    margin-top: 15px;
+    font-size: clamp(28px, 6vw, 45px);
+}
+
+.score {
+    font-size: 52px;
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.score-card {
+    background: #f4e5d3;
+    padding: 18px 10px;
+    border-radius: 15px;
+}
+
+.score-card span {
+    font-size: 25px;
+}
+
+.score-card h3 {
+    font-size: 14px;
+    margin: 7px 0;
+}
+
+.score-card strong {
+    font-size: 24px;
+}
+
+/* RESULT BOXES */
+
+.analysis-box,
+.caption-box,
+.roast-box {
+    margin-top: 15px;
+    padding: 18px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.analysis-box {
+    background: #f1e5d7;
+}
+
+.caption-box {
+    background: #eee0cb;
+}
+
+.roast-box {
+    background: #f7d8c9;
+}
+
+.malayalam-roast {
+    background: #ead5e4;
+}
+
+.analysis-box h3,
+.caption-box h3,
+.roast-box h3 {
+    margin-bottom: 8px;
+}
+
+/* BATTLE */
+
+.battle-heading {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.battle-heading > span {
+    font-size: 40px;
+}
+
+.battle-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.battle-card {
+    text-align: center;
+}
+
+.battle-card h3 {
+    margin-bottom: 12px;
+}
+
+.battle-upload {
+    border: 2px dashed #c69c6d;
+    border-radius: 15px;
+    padding: 25px 10px;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battle-preview {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 12px;
+}
+
+.versus {
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.battle-main-button {
+    display: block;
+    margin: 25px auto 0;
+}
+
+.battle-result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #f4e5d3;
+}
+
+.battle-result h2 {
+    margin-bottom: 8px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    color: #806b58;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 92%;
+        padding-top: 20px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .score-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .battle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .versus {
+        margin: 3px 0;
+    }
+
+    .upload-buttons {
+        flex-direction: column;
+    }
+
+    .upload-btn {
+        width: 100%;
+    }
+}
