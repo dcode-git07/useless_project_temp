@@ -48,7 +48,6 @@ previewImage.src = imageURL;
 previewContainer.classList.remove("hidden");
 previewContainer.style.display = "block";
 
-
 }
 
 // =====================================================
@@ -56,18 +55,15 @@ previewContainer.style.display = "block";
 // =====================================================
 
 if (cameraButton && cameraInput) {
-
-
 cameraButton.addEventListener("click", function () {
-    cameraInput.click();
+cameraInput.click();
 });
 
-cameraInput.addEventListener("change", function () {
 
+cameraInput.addEventListener("change", function () {
     if (cameraInput.files && cameraInput.files.length > 0) {
         showPhoto(cameraInput.files[0]);
     }
-
 });
 
 
@@ -78,20 +74,15 @@ cameraInput.addEventListener("change", function () {
 // =====================================================
 
 if (galleryButton && galleryInput) {
-
-
 galleryButton.addEventListener("click", function () {
-    galleryInput.click();
+galleryInput.click();
 });
 
 galleryInput.addEventListener("change", function () {
-
     if (galleryInput.files && galleryInput.files.length > 0) {
         showPhoto(galleryInput.files[0]);
     }
-
 });
-
 
 }
 
@@ -100,25 +91,15 @@ galleryInput.addEventListener("change", function () {
 // =====================================================
 
 if (changePhoto) {
-
-
 changePhoto.addEventListener("click", function () {
+selectedFile = null;
+previewImage.src = "";
+previewContainer.classList.add("hidden");
+previewContainer.style.display = "none";
 
-    selectedFile = null;
 
-    previewImage.src = "";
-
-    previewContainer.classList.add("hidden");
-    previewContainer.style.display = "none";
-
-    if (galleryInput) {
-        galleryInput.value = "";
-    }
-
-    if (cameraInput) {
-        cameraInput.value = "";
-    }
-
+    if (galleryInput) galleryInput.value = "";
+    if (cameraInput) cameraInput.value = "";
 });
 
 
@@ -129,11 +110,10 @@ changePhoto.addEventListener("click", function () {
 // =====================================================
 
 function getValue(name) {
-
-
 const selected = document.querySelector(
-    'input[name="' + name + '"]:checked'
+'input[name="' + name + '"]:checked'
 );
+
 
 if (selected) {
     return selected.value;
@@ -160,8 +140,6 @@ const flavour = getValue("flavour");
 const enjoyment = getValue("enjoyment");
 
 
-// SWEETNESS
-
 if (sweetness === "just_right") {
     total += 12;
 } else if (sweetness === "too_little") {
@@ -171,8 +149,6 @@ if (sweetness === "just_right") {
 }
 
 
-// MILK
-
 if (milk === "balanced") {
     total += 12;
 } else if (milk === "tea_forward") {
@@ -181,8 +157,6 @@ if (milk === "balanced") {
     total -= 5;
 }
 
-
-// STRENGTH
 
 if (strength === "medium") {
     total += 7;
@@ -195,8 +169,6 @@ if (strength === "medium") {
 }
 
 
-// FLAVOUR
-
 if (flavour === "nicely_spiced") {
     total += 10;
 } else if (flavour === "plain") {
@@ -205,8 +177,6 @@ if (flavour === "nicely_spiced") {
     total -= 7;
 }
 
-
-// ENJOYMENT
 
 if (enjoyment === "never_again") {
     total -= 20;
@@ -240,11 +210,9 @@ const questions = [
 ];
 
 for (let i = 0; i < questions.length; i++) {
-
     if (!getValue(questions[i])) {
         return false;
     }
-
 }
 
 return true;
@@ -263,6 +231,7 @@ const formData = new FormData();
 
 formData.append("file", file);
 
+
 const response = await fetch(API_URL + "/analyze", {
     method: "POST",
     body: formData
@@ -270,11 +239,9 @@ const response = await fetch(API_URL + "/analyze", {
 
 
 if (!response.ok) {
-
     throw new Error(
         "Backend returned HTTP " + response.status
     );
-
 }
 
 
@@ -298,12 +265,10 @@ backendScore = Math.round(
 
 return {
     score: backendScore,
-
     explanation:
         data.message ||
         "Image successfully analyzed by OpenCV."
 };
-
 
 }
 
@@ -314,70 +279,51 @@ return {
 function getVerdict(finalScore) {
 
 
-// These are the roast lines that can appear.
-// One is selected randomly for every verdict.
-
-const roasts = [
-    "ഇത് ചായയാണോ, അതോ ചൂടുവെള്ളത്തിന് brown filter ഇട്ടതാണോ?",
-    "കൊള്ളാം… പക്ഷേ വീട്ടിലെ അമ്മൂമ്മ approval കൊടുക്കുമോ എന്നത് സംശയമാണ്.",
-    "ചായയ്ക്ക് ഒരു ആത്മവിശ്വാസക്കുറവ് കാണുന്നുണ്ട്.",
-    "ഇത് കണ്ടിട്ട് ബിസ്കറ്റ് പോലും മുക്കാൻ മടിക്കും.",
-    "ശരി… കുടിക്കാം. പക്ഷേ പ്രതീക്ഷകൾ കുറച്ച് വെച്ചാൽ മതി."
-];
-
-
-const randomRoast =
-    roasts[Math.floor(Math.random() * roasts.length)];
-
-
 if (finalScore >= 90) {
-
     return {
         title: "👑 CHAI ROYALTY",
         malayalam: "ഇത് ചായയല്ല... ഒരു രാജകീയ അനുഭവമാണ്!",
-        roast: randomRoast
+        english: "The Supreme Court has officially declared this chai LEGENDARY.",
+        malayalamRoast: "ഈ ചായയ്ക്ക് മുന്നിൽ ബാക്കി ചായകൾ ഹാജരാകണം."
     };
-
 }
 
 
 if (finalScore >= 75) {
-
     return {
         title: "🔥 CERTIFIED KADAK",
         malayalam: "അടിപൊളി കടക് ചായ!",
-        roast: randomRoast
+        english: "Strong, confident and absolutely ready for another cup.",
+        malayalamRoast: "ഇത് കുടിച്ചിട്ട് ഒരു കപ്പ് കൂടി ചോദിക്കാതിരിക്കാൻ പറ്റില്ല."
     };
-
 }
 
 
 if (finalScore >= 60) {
-
     return {
         title: "☕ RESPECTABLE CHAI",
         malayalam: "മോശമല്ല... നല്ല ചായ തന്നെ!",
-        roast: randomRoast
+        english: "A respectable cup. Nothing criminal detected.",
+        malayalamRoast: "വീട്ടിലെ ചായ കോടതി ഇതിനെ വെറുതെ വിടുന്നു."
     };
-
 }
 
 
 if (finalScore >= 45) {
-
     return {
         title: "😐 CHAI ON PROBATION",
         malayalam: "ചായയ്ക്ക് കുറച്ച് കൂടി പരിശ്രമിക്കാമായിരുന്നു.",
-        roast: randomRoast
+        english: "The chai is currently on probation.",
+        malayalamRoast: "ചായയ്ക്ക് ഇനിയും തെളിയിക്കാനുള്ളത് ബാക്കിയുണ്ട്."
     };
-
 }
 
 
 return {
     title: "🚨 CHAI CRIME SCENE",
     malayalam: "ഇത് ചായയാണെന്ന് തെളിയിക്കേണ്ടി വരും!",
-    roast: randomRoast
+    english: "The Supreme Court of Chai has serious questions.",
+    malayalamRoast: "ചായ ഉണ്ടാക്കിയ ആളെ കോടതി വിളിച്ചിട്ടുണ്ട്."
 };
 
 
@@ -387,12 +333,7 @@ return {
 // SHOW FINAL RESULT
 // =====================================================
 
-function showResult(
-finalScore,
-visual,
-taste,
-backendExplanation
-) {
+function showResult(finalScore, visual, taste, backendExplanation) {
 
 
 console.log("SHOWING FINAL RESULT:", {
@@ -405,45 +346,32 @@ console.log("SHOWING FINAL RESULT:", {
 const verdict = getVerdict(finalScore);
 
 
-// VERDICT TITLE
-
 if (verdictTitle) {
     verdictTitle.textContent = verdict.title;
 }
 
-
-// MAIN SCORE
 
 if (score) {
     score.textContent = finalScore + "/100";
 }
 
 
-// VISUAL SCORE
-
 if (visualScore) {
     visualScore.textContent = visual + "/100";
 }
 
-
-// TASTE SCORE
 
 if (tasteScoreDisplay) {
     tasteScoreDisplay.textContent = taste + "/100";
 }
 
 
-// OVERALL SCORE
-
 if (overallScore) {
     overallScore.textContent = finalScore + "/100";
 }
 
 
-// EXPLANATION
-
 if (explanation) {
-
     explanation.textContent =
         backendExplanation +
         " Your taste responses gave the chai a taste score of " +
@@ -451,37 +379,29 @@ if (explanation) {
         "/100, while the photo received a visual score of " +
         visual +
         "/100.";
-
 }
 
-
-// MALAYALAM CAPTION
 
 if (malayalamCaption) {
     malayalamCaption.textContent = verdict.malayalam;
 }
 
 
-// ONE ROAST ONLY
-
 if (englishRoast) {
-    englishRoast.textContent = verdict.roast;
+    englishRoast.textContent = verdict.english;
 }
 
 
 if (malayalamRoast) {
-    malayalamRoast.textContent = "";
+    malayalamRoast.textContent = verdict.malayalamRoast;
 }
 
-
-// RESULT SECTION
 
 const resultSection =
     document.getElementById("resultSection");
 
 
 if (!resultSection) {
-
     console.error(
         "ERROR: resultSection was not found in index2.html"
     );
@@ -499,12 +419,10 @@ resultSection.style.display = "block";
 
 
 setTimeout(function () {
-
     resultSection.scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
-
 }, 100);
 
 
@@ -517,118 +435,82 @@ setTimeout(function () {
 if (judgeButton) {
 
 
-judgeButton.addEventListener(
-    "click",
-    async function () {
+judgeButton.addEventListener("click", async function () {
 
-        console.log("JUDGE BUTTON CLICKED");
+    console.log("JUDGE BUTTON CLICKED");
 
 
-        // CHECK PHOTO
-
-        if (!selectedFile) {
-
-            alert(
-                "Please upload a chai photo first."
-            );
-
-            return;
-        }
+    if (!selectedFile) {
+        alert("Please upload a chai photo first.");
+        return;
+    }
 
 
-        // CHECK QUESTIONS
-
-        if (!allQuestionsAnswered()) {
-
-            alert(
-                "Please answer all 5 questions before judging the chai."
-            );
-
-            return;
-        }
+    if (!allQuestionsAnswered()) {
+        alert(
+            "Please answer all 5 questions before judging the chai."
+        );
+        return;
+    }
 
 
-        judgeButton.disabled = true;
-
-        judgeButton.textContent =
-            "⚖️ JUDGING...";
+    judgeButton.disabled = true;
+    judgeButton.textContent = "⚖️ JUDGING...";
 
 
-        try {
+    try {
 
-            // CALCULATE TASTE
+        const taste = calculateTasteScore();
 
-            const taste =
-                calculateTasteScore();
-
-            console.log(
-                "TASTE SCORE:",
-                taste
-            );
+        console.log("TASTE SCORE:", taste);
 
 
-            // SEND PHOTO TO BACKEND
-
-            const result =
-                await analyzeImage(selectedFile);
+        const result =
+            await analyzeImage(selectedFile);
 
 
-            const visual =
-                result.score;
+        const visual = result.score;
 
 
-            // FINAL SCORE
-            // 40% visual
-            // 60% taste
-
-            const finalScore =
-                Math.round(
-                    visual * 0.4 +
-                    taste * 0.6
-                );
+        const finalScore = Math.round(
+            visual * 0.4 +
+            taste * 0.6
+        );
 
 
-            console.log(
-                "FINAL SCORE:",
-                finalScore
-            );
+        console.log("FINAL SCORE:", finalScore);
 
 
-            // SHOW RESULT
-
-            showResult(
-                finalScore,
-                visual,
-                taste,
-                result.explanation
-            );
+        showResult(
+            finalScore,
+            visual,
+            taste,
+            result.explanation
+        );
 
 
-        } catch (error) {
+    } catch (error) {
 
-            console.error(
-                "CHAI VERDICT ERROR:",
-                error
-            );
-
-
-            alert(
-                "Something went wrong while judging the chai:\n\n" +
-                error.message
-            );
+        console.error(
+            "CHAI VERDICT ERROR:",
+            error
+        );
 
 
-        } finally {
+        alert(
+            "Something went wrong while judging the chai:\n\n" +
+            error.message
+        );
 
-            judgeButton.disabled = false;
 
-            judgeButton.textContent =
-                "⚖️ JUDGE MY CHAI";
+    } finally {
 
-        }
+        judgeButton.disabled = false;
+        judgeButton.textContent = "⚖️ JUDGE MY CHAI";
 
     }
-);
+
+});
 
 
 }
@@ -640,14 +522,9 @@ judgeButton.addEventListener(
 if (resetButton) {
 
 
-resetButton.addEventListener(
-    "click",
-    function () {
-
-        location.reload();
-
-    }
-);
+resetButton.addEventListener("click", function () {
+    location.reload();
+});
 
 
 }
@@ -689,9 +566,7 @@ document.getElementById("battleExplanation");
 let battleFileA = null;
 let battleFileB = null;
 
-// =====================================================
-// CHAI BATTLE - PHOTO A
-// =====================================================
+// ---------------- A PHOTO ----------------
 
 if (battleButtonA && battleInputA) {
 
@@ -699,9 +574,7 @@ if (battleButtonA && battleInputA) {
 battleButtonA.addEventListener(
     "click",
     function () {
-
         battleInputA.click();
-
     }
 );
 
@@ -718,20 +591,12 @@ battleInputA.addEventListener(
             battleFileA =
                 battleInputA.files[0];
 
-
             const url =
-                URL.createObjectURL(
-                    battleFileA
-                );
-
+                URL.createObjectURL(battleFileA);
 
             if (battlePreviewA) {
-
                 battlePreviewA.src = url;
-
-                battlePreviewA.style.display =
-                    "block";
-
+                battlePreviewA.style.display = "block";
             }
 
         }
@@ -742,9 +607,7 @@ battleInputA.addEventListener(
 
 }
 
-// =====================================================
-// CHAI BATTLE - PHOTO B
-// =====================================================
+// ---------------- B PHOTO ----------------
 
 if (battleButtonB && battleInputB) {
 
@@ -752,9 +615,7 @@ if (battleButtonB && battleInputB) {
 battleButtonB.addEventListener(
     "click",
     function () {
-
         battleInputB.click();
-
     }
 );
 
@@ -771,20 +632,12 @@ battleInputB.addEventListener(
             battleFileB =
                 battleInputB.files[0];
 
-
             const url =
-                URL.createObjectURL(
-                    battleFileB
-                );
-
+                URL.createObjectURL(battleFileB);
 
             if (battlePreviewB) {
-
                 battlePreviewB.src = url;
-
-                battlePreviewB.style.display =
-                    "block";
-
+                battlePreviewB.style.display = "block";
             }
 
         }
@@ -795,9 +648,7 @@ battleInputB.addEventListener(
 
 }
 
-// =====================================================
-// CHAI BATTLE
-// =====================================================
+// ---------------- BATTLE ----------------
 
 if (battleButton) {
 
@@ -805,9 +656,6 @@ if (battleButton) {
 battleButton.addEventListener(
     "click",
     async function () {
-
-
-        // CHECK BOTH PHOTOS
 
         if (!battleFileA || !battleFileB) {
 
@@ -820,32 +668,21 @@ battleButton.addEventListener(
 
 
         battleButton.disabled = true;
-
         battleButton.textContent =
             "⚔️ CHAI BATTLE IN PROGRESS...";
 
 
         try {
 
-            // ANALYZE CHAI A
-
             const resultA =
-                await analyzeImage(
-                    battleFileA
-                );
-
-
-            // ANALYZE CHAI B
+                await analyzeImage(battleFileA);
 
             const resultB =
-                await analyzeImage(
-                    battleFileB
-                );
+                await analyzeImage(battleFileB);
 
 
             const scoreA =
                 resultA.score;
-
 
             const scoreB =
                 resultB.score;
@@ -862,13 +699,10 @@ battleButton.addEventListener(
             let explanationText;
 
 
-            // CHAI A WINS
-
             if (scoreA > scoreB) {
 
                 winnerText =
                     "🏆 CHAI A WINS!";
-
 
                 explanationText =
                     "Chai A scored " +
@@ -877,16 +711,10 @@ battleButton.addEventListener(
                     scoreB +
                     "/100. Chai A takes the Supreme Court trophy!";
 
-            }
-
-
-            // CHAI B WINS
-
-            else if (scoreB > scoreA) {
+            } else if (scoreB > scoreA) {
 
                 winnerText =
                     "🏆 CHAI B WINS!";
-
 
                 explanationText =
                     "Chai B scored " +
@@ -895,16 +723,10 @@ battleButton.addEventListener(
                     scoreA +
                     "/100. Chai B wins the chai battle!";
 
-            }
-
-
-            // TIE
-
-            else {
+            } else {
 
                 winnerText =
                     "🤝 IT'S A CHAI TIE!";
-
 
                 explanationText =
                     "Both chais scored " +
@@ -914,27 +736,17 @@ battleButton.addEventListener(
             }
 
 
-            // WINNER
-
             if (battleWinner) {
-
                 battleWinner.textContent =
                     winnerText;
-
             }
 
-
-            // EXPLANATION
 
             if (battleExplanation) {
-
                 battleExplanation.textContent =
                     explanationText;
-
             }
 
-
-            // SHOW BATTLE RESULT
 
             if (battleResult) {
 
@@ -942,22 +754,18 @@ battleButton.addEventListener(
                     "hidden"
                 );
 
-
                 battleResult.style.display =
                     "block";
 
 
-                setTimeout(
-                    function () {
+                setTimeout(function () {
 
-                        battleResult.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
+                    battleResult.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
-                    },
-                    100
-                );
+                }, 100);
 
             }
 
