@@ -57,13 +57,13 @@ pip install -r requirements.txt
 For Software:
 
 # Screenshots (Add at least 3)
-!<img width="1366" height="768" alt="Screenshot (1596)" src="https://github.com/user-attachments/assets/a13810bf-bbe7-4673-9211-fba045367261" />
+ <img width="1366" height="768" alt="Screenshot (1596)" src="https://github.com/user-attachments/assets/a13810bf-bbe7-4673-9211-fba045367261" />
 (Here one can upload picture)
 
-!<img width="1366" height="768" alt="Screenshot (1597)" src="https://github.com/user-attachments/assets/36b37a95-9f58-451a-8d1c-9be05aa5715e" />
+ <img width="1366" height="768" alt="Screenshot (1597)" src="https://github.com/user-attachments/assets/36b37a95-9f58-451a-8d1c-9be05aa5715e" />
 (combined visual + taste scoring with a plain-language explanation)
 
-!<img width="1366" height="768" alt="Screenshot (1598)" src="https://github.com/user-attachments/assets/3986d3fb-a392-4886-8e7f-2bf1fc9835f3" />
+ <img width="1366" height="768" alt="Screenshot (1598)" src="https://github.com/user-attachments/assets/3986d3fb-a392-4886-8e7f-2bf1fc9835f3" />
  (upload two chais and let the court decide a winner
 📱 Fully responsive, mobile-friendly interface)
 
