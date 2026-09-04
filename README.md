@@ -45,8 +45,8 @@ cd chai-verdict/backend
 pip install -r requirements.txt   
 
 # Run
-[# Start the backend (from inside the backend folder)
-uvicorn main:app --reload
+   [# Start the backend (from inside the backend folder)
+      uvicorn main:app --reload
     # Runs at http://127.0.0.1:8000
 
     # Start the frontend
