@@ -9,14 +9,14 @@
 ### Team Name: Dcode
 
 
-### Team Members
+### Team Member
  Member- Devika Biju 
  College- LBS Institute of Technology for Women
 
 ### Project Description
 CHAI Verdict is a web app that puts your cup of chai on trial. Upload a photo, answer five brutally honest questions about how it tasted, and the Supreme Court of Chai will hand down a verdict— complete with a score, an explanation, and a roast
 
-Two chais can also be pitted against each other in Chai Battle mode, because some arguments can only be settled in court]
+Two chais can also be pitted against each other in Chai Battle mode, because some arguments can only be settled in court
 
 ### The Problem (that doesn't exist)
  Every Indian household has the same unsolved mystery: is this chai actually kadak, or did someone just wave a tea bag near a glass of hot milk and call it a day? Opinions get thrown around at every family gathering, nobody agrees, and there is no official record of who was right.
@@ -45,13 +45,15 @@ cd chai-verdict/backend
 pip install -r requirements.txt   
 
 # Run
-   [# Start the backend (from inside the backend folder)
+    # Start the backend (from inside the backend folder)
       uvicorn main:app --reload
     # Runs at http://127.0.0.1:8000
 
     # Start the frontend
     # Open index2.html with VS Code's Live Server extension
-    # Runs at http://127.0.0.1:5500/index2.html]
+    # Runs at http://127.0.0.1:5500/index2.html
+
+    
 
 ### Project Documentation
 For Software:
