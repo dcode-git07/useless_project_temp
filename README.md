@@ -47,11 +47,11 @@ pip install -r requirements.txt
 # Run
     # Start the backend (from inside the backend folder)
       uvicorn main:app --reload
-    # Runs at http://127.0.0.1:8000
+    # Runs at https://useless-project-temp1-3vuy.onrender.com
 
     # Start the frontend
-    # Open index2.html with VS Code's Live Server extension
-    # Runs at http://127.0.0.1:5500/index2.html
+    # Open index.html with VS Code's Live Server extension
+    # Runs https://useless-project-temp-1-10xx.onrender.com/
 
     
 
