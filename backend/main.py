@@ -32,8 +32,7 @@ def health():
     return {
         "status": "ok"
     }
-
-
+            
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
 
