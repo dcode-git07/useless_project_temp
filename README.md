@@ -67,6 +67,8 @@ For Software:
  (upload two chais and let the court decide a winner
 📱 Fully responsive, mobile-friendly interface)
 
+## Project Demo
+https://github.com/user-attachments/assets/faff264c-71e1-4d04-b537-732d33d6d6cc
 
 ## Team Contributions
    Devika Biju: Solo Developer
